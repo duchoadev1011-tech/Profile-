@@ -8,135 +8,58 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
-        
-        /* Tone màu Đen (Dark Theme) cực ngầu */
-        body { 
-            background: #050505; 
-            background-image: radial-gradient(circle at 50% 0%, #1e1e24 0%, #050505 70%);
-            display: flex; justify-content: center; align-items: flex-start; 
-            min-height: 100vh; color: #fff; padding: 30px 12px; 
-        }
-
-        .wrapper { 
-            background: rgba(15, 15, 15, 0.8); 
-            backdrop-filter: blur(15px);
-            -webkit-backdrop-filter: blur(15px);
-            border: 1px solid rgba(255, 255, 255, 0.1); 
-            border-radius: 24px; width: 100%; max-width: 580px; 
-            box-shadow: 0 20px 50px rgba(0,0,0,0.9), 0 0 30px rgba(255, 255, 255, 0.05); 
-            overflow: hidden; position: relative; margin-top: 30px; 
-        }
-
-        /* Ảnh bìa lấy từ web cũ */
-        .cover { 
-            height: 170px; background-size: cover; background-position: center; 
-            position: relative; box-shadow: inset 0 -80px 60px -20px rgba(15,15,15,1); 
-            background-image: url('https://i.imgur.com/dm016PC.jpeg'); 
-        }
-        
-        /* Huy hiệu Admin màu vàng Gold */
-        .admin-tag { 
-            position: absolute; top: 15px; right: 15px; 
-            background: linear-gradient(135deg, #fbbf24, #f59e0b); 
-            color: #000; font-weight: 800; font-size: 11px; 
-            padding: 6px 14px; border-radius: 8px; 
-            transform: rotate(2deg); box-shadow: 0 4px 10px rgba(245, 158, 11, 0.4); 
-            text-transform: uppercase; letter-spacing: 1px;
-        }
-
-        /* Avatar lấy từ web cũ */
-        .avatar { 
-            width: 105px; height: 105px; border-radius: 50%; 
-            border: 4px solid #0f0f0f; position: absolute; top: 115px; left: 50%; 
-            transform: translateX(-50%); z-index: 10; overflow: hidden; 
-            box-shadow: 0 0 25px rgba(255, 255, 255, 0.2); 
-        }
+        body { background: #050505; background-image: radial-gradient(circle at 50% 0%, #1e1e24 0%, #050505 70%); display: flex; justify-content: center; align-items: flex-start; min-height: 100vh; color: #fff; padding: 30px 12px; }
+        .wrapper { background: rgba(15, 15, 15, 0.8); backdrop-filter: blur(15px); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 24px; width: 100%; max-width: 580px; box-shadow: 0 20px 50px rgba(0,0,0,0.9); overflow: hidden; position: relative; margin-top: 30px; }
+        .cover { height: 170px; background-size: cover; background-position: center; position: relative; box-shadow: inset 0 -80px 60px -20px rgba(15,15,15,1); }
+        .admin-tag { position: absolute; top: 15px; right: 15px; background: linear-gradient(135deg, #fbbf24, #f59e0b); color: #000; font-weight: 800; font-size: 11px; padding: 6px 14px; border-radius: 8px; transform: rotate(2deg); box-shadow: 0 4px 10px rgba(245, 158, 11, 0.4); text-transform: uppercase; letter-spacing: 1px; }
+        .avatar { width: 105px; height: 105px; border-radius: 50%; border: 4px solid #0f0f0f; position: absolute; top: 115px; left: 50%; transform: translateX(-50%); z-index: 10; overflow: hidden; box-shadow: 0 0 25px rgba(255, 255, 255, 0.2); }
         .avatar img { width: 100%; height: 100%; object-fit: cover; }
-
         .content { padding: 65px 20px 25px; text-align: center; }
-        
-        /* Tên và Tích Xanh */
         .name-area { display: flex; align-items: center; justify-content: center; gap: 8px; margin-bottom: 5px; }
         .name-area h1 { font-size: 28px; font-weight: 800; letter-spacing: -0.5px; text-shadow: 0 2px 10px rgba(255,255,255,0.2); }
         .name-area .tick { color: #1d9bf0; font-size: 22px; filter: drop-shadow(0 0 8px rgba(29, 155, 240, 0.8)); }
-        
-        /* Chữ Trung Gian màu vàng Gold */
         .role { font-size: 13px; color: #fbbf24; margin-bottom: 25px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; }
-
-        /* Nút liên hệ Tone màu Xám Đen */
-        .btn-contact { 
-            display: flex; align-items: center; justify-content: center; gap: 8px; 
-            background: linear-gradient(135deg, #3f3f46, #18181b); 
-            color: #fff; font-weight: 700; font-size: 15px; width: 100%; padding: 16px; 
-            border: 1px solid rgba(255,255,255,0.1); border-radius: 14px; cursor: pointer; text-decoration: none; 
-            transition: 0.3s; box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5); 
-        }
+        .btn-contact { display: flex; align-items: center; justify-content: center; gap: 8px; background: linear-gradient(135deg, #3f3f46, #18181b); color: #fff; font-weight: 700; font-size: 15px; width: 100%; padding: 16px; border: 1px solid rgba(255,255,255,0.1); border-radius: 14px; cursor: pointer; text-decoration: none; transition: 0.3s; box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5); }
         .btn-contact:hover { background: linear-gradient(135deg, #52525b, #27272a); transform: translateY(-2px); border-color: rgba(255,255,255,0.2); }
-
-        .section-head { 
-            text-align: left; font-size: 13px; font-weight: 700; color: #e4e4e7; 
-            margin: 30px 0 12px 5px; display: flex; align-items: center; gap: 8px; 
-            text-transform: uppercase; letter-spacing: 0.5px; 
-        }
+        .section-head { text-align: left; font-size: 13px; font-weight: 700; color: #e4e4e7; margin: 30px 0 12px 5px; display: flex; align-items: center; gap: 8px; text-transform: uppercase; letter-spacing: 0.5px; }
         .section-head i { color: #fbbf24; font-size: 14px; }
-
-        /* Quy trình cam kết */
-        .services { 
-            background: rgba(255, 255, 255, 0.03); border: 1px dashed rgba(255, 255, 255, 0.15); 
-            border-radius: 14px; padding: 16px; text-align: left; font-size: 13px; 
-            color: #d4d4d8; line-height: 1.6; 
-        }
+        .services { background: rgba(255, 255, 255, 0.03); border: 1px dashed rgba(255, 255, 255, 0.15); border-radius: 14px; padding: 16px; text-align: left; font-size: 13px; color: #d4d4d8; line-height: 1.6; }
         .services b { color: #fff; font-weight: 700; }
-
-        /* Đánh giá uy tín */
         .reviews-container { display: flex; flex-direction: column; gap: 12px; }
-        .review-card { 
-            background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(255, 255, 255, 0.08); 
-            border-radius: 14px; padding: 15px; text-align: left; display: flex; gap: 12px; align-items: flex-start; 
-        }
-        .review-avatar { 
-            width: 42px; height: 42px; border-radius: 50%; 
-            background: linear-gradient(135deg, #52525b, #18181b); 
-            display: flex; justify-content: center; align-items: center; 
-            font-weight: 800; font-size: 18px; color: white; flex-shrink: 0; 
-        }
+        .review-card { background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 14px; padding: 15px; text-align: left; display: flex; gap: 12px; align-items: flex-start; }
+        .review-avatar { width: 42px; height: 42px; border-radius: 50%; background: linear-gradient(135deg, #52525b, #18181b); display: flex; justify-content: center; align-items: center; font-weight: 800; font-size: 18px; color: white; flex-shrink: 0; }
         .review-content { flex: 1; }
         .review-name { font-weight: 700; font-size: 14px; color: #fff; margin-bottom: 4px; display: flex; justify-content: space-between; align-items: center; }
         .review-stars { color: #fbbf24; font-size: 10px; letter-spacing: 2px; }
         .review-text { font-size: 13px; color: #a1a1aa; line-height: 1.5; }
-
-        /* Liên kết MXH lấy từ web cũ */
         .social-links { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 20px; }
-        .social-btn { 
-            display: flex; align-items: center; justify-content: center; gap: 8px; 
-            padding: 12px; border-radius: 12px; text-decoration: none; color: #fff; 
-            font-weight: 600; font-size: 13px; transition: all 0.3s ease; 
-            background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); 
-        }
+        .social-btn { display: flex; align-items: center; justify-content: center; gap: 8px; padding: 12px; border-radius: 12px; text-decoration: none; color: #fff; font-weight: 600; font-size: 13px; transition: all 0.3s ease; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); }
         .social-btn:hover { background: rgba(255,255,255,0.1); transform: translateY(-3px); }
         .social-btn i { font-size: 16px; }
         .fb i { color: #1877f2; } .tg i { color: #229ED9; } .dc i { color: #5865F2; } .zl i { color: #0068ff; }
-
         footer { margin-top: 20px; font-size: 11px; color: #52525b; font-weight: 500; }
     </style>
 </head>
 <body>
 
+    <audio id="bgMusic" loop>
+        <source src="" type="audio/mpeg">
+    </audio>
+
     <div class="wrapper">
-        <div class="cover">
+        <div class="cover" id="cover">
             <div class="admin-tag"><i class="fas fa-crown"></i> ADMIN</div>
         </div>
-        <div class="avatar"><img src="https://i.imgur.com/1UlX7qQ.jpeg" alt="Avatar"></div>
+        <div class="avatar"><img id="avatar-img" src="" alt="Avatar"></div>
         
         <div class="content">
             <div class="name-area">
-                <h1>Cao Đức Hòa</h1>
-                <!-- TÍCH XANH Ở ĐÂY -->
+                <h1 id="name">Đang tải...</h1>
                 <i class="fas fa-check-circle tick" title="Đã xác minh"></i>
             </div>
-            <p class="role">Admin Giao Dịch Trung Gian</p>
+            <p class="role" id="bio">Đang tải...</p>
 
-            <a href="https://zalo.me/0868712776" target="_blank" class="btn-contact">
+            <a href="#" id="main-contact" target="_blank" class="btn-contact">
                 <i class="fas fa-shield-alt"></i> LIÊN HỆ TRUNG GIAN NGAY
             </a>
 
@@ -149,35 +72,69 @@
             </div>
 
             <div class="section-head"><i class="fas fa-star"></i> Khách Hàng Đã Giao Dịch</div>
-            <div class="reviews-container">
-                <div class="review-card">
-                    <div class="review-avatar">H</div>
-                    <div class="review-content">
-                        <div class="review-name">Hoàng Gia Huy <span class="review-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></span></div>
-                        <div class="review-text">Anh Hòa trung gian uy tín lắm, giữ tiền chắc chắn, giao dịch 2 triệu rất mượt.</div>
-                    </div>
-                </div>
-                <div class="review-card">
-                    <div class="review-avatar">M</div>
-                    <div class="review-content">
-                        <div class="review-name">Minh Tuấn <span class="review-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></span></div>
-                        <div class="review-text">Giao dịch mua bán nick game, admin hỗ trợ nhiệt tình, uy tín nha mọi người.</div>
-                    </div>
-                </div>
+            <div class="reviews-container" id="reviews-container">
+                <p style="color:#52525b; font-size:12px; text-align:left;">Đang tải đánh giá...</p>
             </div>
 
             <div class="section-head" style="margin-top: 30px;"><i class="fas fa-link"></i> Kênh Liên Hệ</div>
             <div class="social-links">
-                <!-- Link MXH lấy từ web cũ -->
-                <a href="https://www.facebook.com/wjkez" target="_blank" class="social-btn fb"><i class="fab fa-facebook-f"></i> Facebook</a>
-                <a href="https://t.me/Userdevngu" target="_blank" class="social-btn tg"><i class="fab fa-telegram-plane"></i> Telegram</a>
-                <a href="https://zalo.me/0868712776" target="_blank" class="social-btn zl"><i class="fas fa-comment-dots"></i> Zalo</a>
-                <a href="https://discord.com/users/482717433388335115" target="_blank" class="social-btn dc"><i class="fab fa-discord"></i> Discord</a>
+                <a href="#" id="link-facebook" target="_blank" class="social-btn fb"><i class="fab fa-facebook-f"></i> Facebook</a>
+                <a href="#" id="link-telegram" target="_blank" class="social-btn tg"><i class="fab fa-telegram-plane"></i> Telegram</a>
+                <a href="#" id="link-zalo" target="_blank" class="social-btn zl"><i class="fas fa-comment-dots"></i> Zalo</a>
+                <a href="#" id="link-discord" target="_blank" class="social-btn dc"><i class="fab fa-discord"></i> Discord</a>
             </div>
             
             <footer>&copy; 2026 Cao Đức Hòa. Uy tín tạo nên thương hiệu.</footer>
         </div>
     </div>
 
+    <script>
+        fetch('/data.json')
+            .then(res => res.json())
+            .then(data => {
+                document.getElementById('name').textContent = data.name;
+                document.getElementById('bio').textContent = data.bio;
+                document.getElementById('avatar-img').src = data.avatar;
+                document.getElementById('cover').style.backgroundImage = `url('${data.cover}')`;
+                document.getElementById('link-facebook').href = data.facebook;
+                document.getElementById('link-discord').href = data.discord;
+                document.getElementById('link-telegram').href = data.telegram;
+                document.getElementById('link-zalo').href = data.zalo;
+                document.getElementById('main-contact').href = data.zalo; // Nút chính dẫn về Zalo
+
+                if (data.music) {
+                    document.getElementById('bgMusic').src = data.music;
+                    const playMusic = () => {
+                        document.getElementById('bgMusic').play().catch(e => console.log("Chờ tương tác..."));
+                        document.removeEventListener('click', playMusic);
+                    };
+                    document.addEventListener('click', playMusic);
+                }
+
+                const reviewContainer = document.getElementById('reviews-container');
+                if (data.reviews && data.reviews.length > 0) {
+                    reviewContainer.innerHTML = '';
+                    data.reviews.forEach(review => {
+                        const initial = review.name.charAt(0).toUpperCase();
+                        const reviewHTML = `
+                            <div class="review-card">
+                                <div class="review-avatar">${initial}</div>
+                                <div class="review-content">
+                                    <div class="review-name">
+                                        ${review.name}
+                                        <span class="review-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></span>
+                                    </div>
+                                    <div class="review-text">${review.comment}</div>
+                                </div>
+                            </div>
+                        `;
+                        reviewContainer.innerHTML += reviewHTML;
+                    });
+                } else {
+                    reviewContainer.innerHTML = '<p style="color:#52525b; font-size:12px; text-align:left;">Chưa có đánh giá nào.</p>';
+                }
+            })
+            .catch(err => console.error('Lỗi tải dữ liệu:', err));
+    </script>
 </body>
-  </html>
+</html>
